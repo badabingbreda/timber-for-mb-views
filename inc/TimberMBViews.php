@@ -103,7 +103,10 @@ class Main {
         }
         // Else: view is a post object.
         if ( !empty( $view_from_post ) ) {
-            $render = $view_from_post->post_content;
+            $render = $view_from_post;
+            $render_as = 'compile_string';
+        } elseif ( is_a( $view , 'WP_Post' ) ) {
+            $render = $view;
             $render_as = 'compile_string';
         } else {
             // check if additional mbv_twig_paths have been set
@@ -120,7 +123,7 @@ class Main {
         if ( 'compile' == $render_as ) {
             $output .= \Timber::compile( $view , $data );
         } else {
-            $output .= \Timber::compile_string( $render , $data );
+            $output .= \Timber::compile_string( $render->post_content , $data );
         }
 
         return $output;
