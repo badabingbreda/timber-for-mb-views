@@ -98,15 +98,15 @@ class Main {
 
         if ( is_numeric( $view ) ) {      		// Get view by ID.
             $view_from_post = get_post( $view );
-        }elseif ( is_string( $view ) ) { 		// Get view by slug.
+        } elseif ( is_string( $view ) ) { 		// Get view by slug.
             $view_from_post = get_page_by_path( $view, OBJECT, 'mb-views' );
+		} elseif ( is_a( $view , 'WP_Post' ) ) {
+			$view_from_post = $view;
         }
+
         // Else: view is a post object.
         if ( !empty( $view_from_post ) ) {
             $render = $view_from_post;
-            $render_as = 'compile_string';
-        } elseif ( is_a( $view , 'WP_Post' ) ) {
-            $render = $view;
             $render_as = 'compile_string';
         } else {
             // check if additional mbv_twig_paths have been set
