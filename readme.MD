@@ -13,6 +13,7 @@ It has been extended with
 
     posts
     query.vars
+    query.found_posts
     mb
 
 Timber comes with the useful TimberImage(), Post() and many other WP specific functionality.
