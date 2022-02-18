@@ -7,7 +7,7 @@ class Main {
 
         add_filter( 'timber/twig'           , __CLASS__ . '::mb_extend', 10, 1 );
         add_filter( 'timber/loader/paths'   , __CLASS__ . '::add_mbv_fs_paths', 10, 1 );
-        add_filter( 'timber/loader/loader'  , __CLASS__ . '::extend_fs_loader', 10, 1 );
+        add_filter( 'timber/loader/loader'  , __CLASS__ . '::extend_fs_loader', 20, 1 );
         add_filter( 'mbv_data_timber'       , __CLASS__ . '::extend_mbv_data', 10, 1 );
         add_filter( 'mbv_render_output'     , __CLASS__ . '::render', 10, 3 );
 
@@ -51,7 +51,13 @@ class Main {
      * @return void
      */
     public static function extend_fs_loader( $fs ) {
-        return apply_filters( 'mbv_fs_loader', $fs );
+
+        // load our alternative TwigLoader
+        require_once( 'TwigLoader.php' );
+
+        $customloader = new TwigLoader;
+        $chainloader = new \Twig\Loader\ChainLoader( [ $customloader , $fs ] );
+        return $chainloader;
     }
     
     /**

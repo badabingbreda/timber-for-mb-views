@@ -45,3 +45,7 @@ Can be used to add namespaced paths.
         return $fs_loader; 
     } );
 
+changelog
+|version|date|changes|
+|---|---|---|
+|1.1.0|feb 18th 2022|Added support for mb-view post import,include, block etcetera by adding twig_chain_loader to Timber|

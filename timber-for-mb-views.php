@@ -10,7 +10,7 @@
  * Plugin Name: Timber for MB Views
  * Plugin URI:  https://www.badabing.nl
  * Description: Unlock Timber for MB Views
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Badabingbreda
  * Author URI:  https://www.badabing.nl
  * Text Domain: timber-for-mb-views
