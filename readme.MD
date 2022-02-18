@@ -20,10 +20,6 @@ Timber comes with the useful TimberImage(), Post() and many other WP specific fu
 
 The `mb` Proxy Class has been added for your convenience.
 
-## Warning
-
-You will not be able to include, import, use mb-views Post views. You can render one, but only directly using the shortcode. All included, imported, use or block used templates need to exist as a files in the theme or plugin.
-
 ---
 You can use the following filters to add custom template paths to your setup:
 
