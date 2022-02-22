@@ -44,4 +44,6 @@ Can be used to add namespaced paths.
 changelog
 |version|date|changes|
 |---|---|---|
+|1.2.1|feb 22th 2022|Added checks for Timber being active, in case temporarily disabled, twig compiled using MB Twig version|
+|1.2.0|feb 22th 2022|Added CSS to hide "Insert Field" button|
 |1.1.0|feb 18th 2022|Added support for mb-view post import,include, block etcetera by adding twig_chain_loader to Timber|

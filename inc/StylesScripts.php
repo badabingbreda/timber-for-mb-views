@@ -18,6 +18,8 @@ class StylesScripts {
 
 		if ( !self::is_screen() ) return;
         if ( !is_admin() ) return;
+        // if Timber is deactivated for some reason, don't hide the button
+        if ( !class_exists( 'Timber' ) ) return;
 
         wp_enqueue_style( 'timber-mb-views', TIMBERMBVIEWS_URL . 'css/timber-for-mb-views.css', array(), TIMBERMBVIEWS_VERSION );
 

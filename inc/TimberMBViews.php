@@ -69,6 +69,9 @@ class Main {
      */
     public static function extend_mbv_data( $data ) {
 
+        // return $data when Timber isn't active
+        if ( !self::timber_active() ) return $data;
+
         global $wp_query;
         // current post
         $data['post'] = new \TimberPost();
@@ -97,6 +100,9 @@ class Main {
      */
     public static function render( $output , $view , $data ) {
         
+        // return $data when Timber isn't active
+        if ( !self::timber_active() ) return $output;
+
         $render_as = 'compile';
 
         // Allow developers to add Twig Filesystem Loader(s) by providing path(s)
@@ -133,6 +139,15 @@ class Main {
         }
 
         return $output;
+    }
+    
+    /**
+     * timber_active
+     *
+     * @return void
+     */
+    private static function timber_active() {
+        return class_exists( 'Timber' ); 
     }
 
 
