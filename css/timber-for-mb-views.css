@@ -1,0 +1,21 @@
+/*
+  CSS needed to hide the Insert Field button provided by MB Views;
+  when using Timber, the functions provided by MB won't work, so might as well hide it;
+*/
+
+#mbv-template-editor .mbv-panel-trigger {
+    display: none;
+}
+#mbv-template-editor .mbv-toolbar {
+    position: relative;
+}
+
+#mbv-template-editor .mbv-toolbar:after {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    right: 10px;
+    content: 'Insert Field button hidden, using Timber';
+}
