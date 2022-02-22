@@ -98,7 +98,7 @@ class Main {
      * @param  mixed $data
      * @return void
      */
-    public static function render( $output , $view , $data ) {
+    public static function render( $output , $view , $viewdata ) {
         
         // return $data when Timber isn't active
         if ( !self::timber_active() ) return $output;
@@ -129,7 +129,8 @@ class Main {
         }
 
         $data = \Timber::get_context();
-
+        // merge viewdata with Timber context
+        $data = array_merge( $viewdata , $data );
         $data = apply_filters( 'mbv_data_timber', $data );
 
         if ( 'compile' == $render_as ) {
